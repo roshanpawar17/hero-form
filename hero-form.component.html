@@ -1,0 +1,33 @@
+<div class="form-conatiner">
+    <h1>Hero Form</h1>
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm)">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" [(ngModel)]="heroData.name" #name="ngModel" class="form-control" id="name" name="name" required [disabled]="inputDisable">
+            <span *ngIf="name.touched && name.invalid">Name is required</span>
+        </div>
+    
+        <div class="form-group">
+            <label for="alterEgo">Alter Ego</label>
+            <input type="text" [(ngModel)]="heroData.alterEgo" #alterEgo="ngModel" class="form-control" id="alterEgo" name="alterEgo" required [disabled]="inputDisable">
+            <span *ngIf="alterEgo.touched && alterEgo.invalid">Alter Ego is required</span>
+        </div>
+    
+        <div class="form-group">
+            <label for="power">Hero Power</label>
+            <select [(ngModel)]="heroData.power" #power="ngModel" class="form-control" id="power" required name="power" required [disabled]="inputDisable">
+                <option *ngFor="let power of powers" [value]="power">{{power}}</option>
+            </select>
+            <span *ngIf="power.touched && power.invalid">Power is required</span>
+        </div>
+        <button type="submit" class="btn submit-btn" [disabled]="heroForm.invalid">Submit</button>
+    </form>
+</div>
+
+<div *ngIf="submited && showData">
+    <h1>You Submited the following:</h1>
+    <p>Name : {{heroData.name}}</p>
+    <p>Alter Ego: {{heroData.alterEgo}}</p>
+    <p>Power: {{heroData.power}}</p>
+    <button class="btn edit-btn" (click)="editForm()">Edit</button>
+</div>
