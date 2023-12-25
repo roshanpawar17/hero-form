@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-hero-form',
@@ -9,11 +10,7 @@ export class HeroFormComponent {
 
   powers: string[] = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer']
 
-  heroData = {
-    name: 'Roshan',
-    alterEgo: 'Chuck Overstreet',
-    power: 'Really Smart'
-  }
+  model = new Hero(18, 'Dr. IQ', this.powers[0], 'Chuck Overstreet');
 
   submited=false
   showData=false
@@ -24,9 +21,12 @@ export class HeroFormComponent {
       // console.log(data.value)
       this.submited=true
       this.showData=true
-      this.heroData = data.value
       this.inputDisable=true
     }
+  }
+
+  newHero(){
+    this.model = new Hero(42, '', '');
   }
 
   editForm(){

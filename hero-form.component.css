@@ -45,7 +45,7 @@ form .form-group label{
     border-radius: 5px;
 }
 
-.form-group input.ng-valid, select.ng-valid{
+.form-group input.ng-valid[required], select.ng-valid[required]{
     border: 1px solid #42A948;
     border-left: 7px solid #42A948;
     border-radius: 5px;
@@ -73,6 +73,13 @@ form .form-group span{
 .submit-btn{
     background-color: #33ca33;
 }
+
+.btn-newhero{
+    background-color: #d4dad4;
+    margin-top: 10px;
+    color: black;
+}
+
 
 .edit-btn{
     background-color: #337ab7;
